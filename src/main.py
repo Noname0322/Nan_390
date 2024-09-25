@@ -34,7 +34,7 @@ def main():
                 except EOFError:
                     print(f"Inference socket exiting")
 
-                    return
+                    raise(EOFError)
 
                 image = infer(request, pipeline)
 
