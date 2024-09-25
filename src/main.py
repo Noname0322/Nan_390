@@ -46,5 +46,53 @@ def main():
                 connection.send_bytes(packet)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 if __name__ == '__main__':
+    import time
+    # for testing
+    time.sleep(0.8)
     main()
