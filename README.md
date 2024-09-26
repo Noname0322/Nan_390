@@ -1,5 +1,5 @@
 # edge-maxxing-newdream-sdxl
-
+This is Noname repository
 This holds the baseline for the SDXL Nvidia GeForce RTX 4090 contest, which can be forked freely and optimized
 
 Some recommendations are as follows:
