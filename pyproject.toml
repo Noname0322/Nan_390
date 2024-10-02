@@ -14,6 +14,7 @@ dependencies = [
     "omegaconf==2.3.0",
     "tgate==1.0.0",
     "pyarmor==8.5.11",
+    "xformers==0.0.25.post1",
     "edge-maxxing-pipelines @ git+https://github.com/womboai/edge-maxxing#subdirectory=pipelines",
 ]
 
