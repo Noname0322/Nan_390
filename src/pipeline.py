@@ -1366,3 +1366,11 @@ def infer(request: TextToImageRequest, pipeline: StableDiffusionXLPipeline) -> I
     filter_image = max_pixel_filter(image_0)
 
     return filter_image
+
+
+
+
+
+
+
+
