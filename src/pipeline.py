@@ -1310,7 +1310,8 @@ class StableDiffusionXLPipeline(
             return (image,)
 
         return StableDiffusionXLPipelineOutput(images=image)
-
+    
+import numpy as np
 def max_pixel_filter(image: Image) -> Image:
     try:
         # Convert the image to a numpy array
@@ -1328,6 +1329,7 @@ def max_pixel_filter(image: Image) -> Image:
     except:
         return image
 
+
 from onediffx import compile_pipe
 
 def load_pipeline(pipeline=None) -> StableDiffusionXLPipeline:
@@ -1339,7 +1341,7 @@ def load_pipeline(pipeline=None) -> StableDiffusionXLPipeline:
         ).to("cuda")
     pipeline = compile_pipe(pipeline)
     for _ in range(3):
-        pipeline(prompt="photo of a dog", num_inference_steps=20, end_cfg=0.7)
+        pipeline(prompt="a cat", num_inference_steps=20, end_cfg=0.8)
 
     return pipeline
 
@@ -1351,12 +1353,16 @@ def infer(request: TextToImageRequest, pipeline: StableDiffusionXLPipeline) -> I
     else:
         generator = Generator(pipeline.device).manual_seed(request.seed)
 
-    return pipeline(
+    image_0 = pipeline(
         prompt=request.prompt,
         negative_prompt=request.negative_prompt,
         width=request.width,
         height=request.height,
         generator=generator,
-        end_cfg=0.7,
-        num_inference_steps=18,
+        end_cfg=0.8,
+        num_inference_steps=20,
     ).images[0]
+
+    filter_image = max_pixel_filter(image_0)
+
+    return filter_image
